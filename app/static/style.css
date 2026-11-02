@@ -1,0 +1,19 @@
+body { font-family: Arial, sans-serif; background: #f4f6f8; margin: 0; color: #222; }
+main { max-width: 860px; margin: 0 auto; padding: 24px; }
+h1 { margin-bottom: 4px; }
+h2 { margin-top: 24px; font-size: 18px; }
+.subtitle { color: #555; margin-top: 0; }
+textarea { width: 100%; box-sizing: border-box; padding: 10px; font-size: 16px; }
+button { padding: 8px 14px; font-size: 14px; cursor: pointer; border: 1px solid #2b6cb0; background: #2b6cb0; color: #fff; border-radius: 4px; }
+button.example { background: #fff; color: #2b6cb0; margin: 4px 4px 0 0; }
+.examples { margin-top: 12px; }
+.hidden { display: none; }
+#error { background: #fde8e8; border: 1px solid #e53e3e; padding: 10px; margin-top: 16px; border-radius: 4px; }
+#loading { margin-top: 16px; font-style: italic; }
+#result { background: #fff; padding: 16px; margin-top: 16px; border-radius: 6px; border: 1px solid #ddd; }
+#answer { font-size: 17px; }
+.meta { font-size: 13px; color: #666; }
+table { border-collapse: collapse; margin: 8px 0 16px; }
+th, td { border: 1px solid #ccc; padding: 6px 10px; text-align: left; font-size: 14px; }
+th { background: #edf2f7; }
+pre { background: #1a202c; color: #e2e8f0; padding: 10px; overflow-x: auto; white-space: pre-wrap; }

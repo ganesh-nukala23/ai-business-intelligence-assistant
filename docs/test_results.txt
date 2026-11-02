@@ -1,0 +1,89 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.18, pytest-9.1.1, pluggy-1.6.0 -- /usr/local/bin/python3
+rootdir: /home/claude/sales-bi-assistant
+configfile: pytest.ini
+testpaths: tests
+plugins: platformdirs-4.13.0, anyio-4.15.1
+collecting ... collected 79 items
+
+tests/test_analytics.py::test_total_revenue PASSED
+tests/test_analytics.py::test_top_product PASSED
+tests/test_analytics.py::test_top_region PASSED
+tests/test_analytics.py::test_monthly_revenue_is_chronological_and_adds_up PASSED
+tests/test_analytics.py::test_april_excludes_returned_and_zero_quantity_rows PASSED
+tests/test_analytics.py::test_compare_months PASSED
+tests/test_analytics.py::test_compare_months_is_chronological_even_if_asked_backwards PASSED
+tests/test_analytics.py::test_compare_months_with_year_and_decrease PASSED
+tests/test_analytics.py::test_compare_months_bad_input_raises_clear_error[July-January] PASSED
+tests/test_analytics.py::test_compare_months_bad_input_raises_clear_error[January-January] PASSED
+tests/test_analytics.py::test_compare_months_bad_input_raises_clear_error[Smarch-January] PASSED
+tests/test_analytics.py::test_compare_months_bad_input_raises_clear_error[None-January] PASSED
+tests/test_analytics.py::test_percent_change_zero_base_is_safe PASSED
+tests/test_analytics.py::test_unknown_intent_is_rejected PASSED
+tests/test_api.py::test_health PASSED
+tests/test_api.py::test_stats_endpoint PASSED
+tests/test_api.py::test_ask_total_revenue PASSED
+tests/test_api.py::test_ask_top_product_with_different_wording PASSED
+tests/test_api.py::test_ask_monthly PASSED
+tests/test_api.py::test_ask_top_region_wording_variants PASSED
+tests/test_api.py::test_ask_compare_months PASSED
+tests/test_api.py::test_empty_question_is_400[] PASSED
+tests/test_api.py::test_empty_question_is_400[   ] PASSED
+tests/test_api.py::test_too_long_question_is_400 PASSED
+tests/test_api.py::test_invalid_body_is_422[payload0] PASSED
+tests/test_api.py::test_invalid_body_is_422[payload1] PASSED
+tests/test_api.py::test_invalid_body_is_422[payload2] PASSED
+tests/test_api.py::test_unsupported_questions_are_rejected_not_guessed[What is the weather today?] PASSED
+tests/test_api.py::test_unsupported_questions_are_rejected_not_guessed[Forecast next year's revenue] PASSED
+tests/test_api.py::test_unsupported_questions_are_rejected_not_guessed[Which product had the lowest revenue?] PASSED
+tests/test_api.py::test_unsupported_questions_are_rejected_not_guessed[What is the average order value?] PASSED
+tests/test_api.py::test_unsupported_questions_are_rejected_not_guessed[DROP TABLE sales] PASSED
+tests/test_api.py::test_unsupported_questions_are_rejected_not_guessed[What was the revenue in March?] PASSED
+tests/test_api.py::test_unsupported_questions_are_rejected_not_guessed[What is the total revenue for Monitor?] PASSED
+tests/test_api.py::test_unsupported_questions_are_rejected_not_guessed[Show revenue for the North region] PASSED
+tests/test_api.py::test_compare_without_months_asks_for_clarification PASSED
+tests/test_api.py::test_compare_month_without_data PASSED
+tests/test_api.py::test_missing_database_returns_503_without_details PASSED
+tests/test_api.py::test_home_page_served PASSED
+tests/test_api.py::test_llm_reply_is_used_when_valid PASSED
+tests/test_api.py::test_llm_reply_inside_code_fence_is_accepted PASSED
+tests/test_api.py::test_llm_months_are_validated_by_database PASSED
+tests/test_api.py::test_llm_cannot_choose_unknown_operation PASSED
+tests/test_api.py::test_garbage_llm_output_falls_back[I think you want revenue] PASSED
+tests/test_api.py::test_garbage_llm_output_falls_back[{not json}] PASSED
+tests/test_api.py::test_garbage_llm_output_falls_back[[1,2]] PASSED
+tests/test_api.py::test_garbage_llm_output_falls_back[{"intent": 5}] PASSED
+tests/test_api.py::test_llm_api_failure_falls_back PASSED
+tests/test_api.py::test_llm_http_error_status_falls_back PASSED
+tests/test_api.py::test_llm_saying_unsupported_is_respected PASSED
+tests/test_api.py::test_llm_filters_make_question_unsupported PASSED
+tests/test_api.py::test_request_sent_to_llm_has_no_data_and_uses_env_key PASSED
+tests/test_validation.py::test_load_report_counts PASSED
+tests/test_validation.py::test_missing_unit_price_is_excluded_and_not_guessed PASSED
+tests/test_validation.py::test_returned_transaction_is_excluded PASSED
+tests/test_validation.py::test_zero_quantity_is_flagged_not_a_normal_sale PASSED
+tests/test_validation.py::test_dates_are_stored_as_iso_day_month_order PASSED
+tests/test_validation.py::test_loader_rejects_duplicates_and_bad_dates PASSED
+tests/test_validation.py::test_loader_raises_for_missing_columns PASSED
+tests/test_validation.py::test_safe_select_is_accepted PASSED
+tests/test_validation.py::test_join_on_allowed_tables_is_accepted PASSED
+tests/test_validation.py::test_unsafe_sql_is_rejected[DROP TABLE sales] PASSED
+tests/test_validation.py::test_unsafe_sql_is_rejected[DELETE FROM sales] PASSED
+tests/test_validation.py::test_unsafe_sql_is_rejected[UPDATE sales SET status = 'x'] PASSED
+tests/test_validation.py::test_unsafe_sql_is_rejected[INSERT INTO sales VALUES (1)] PASSED
+tests/test_validation.py::test_unsafe_sql_is_rejected[ALTER TABLE sales ADD COLUMN x TEXT] PASSED
+tests/test_validation.py::test_unsafe_sql_is_rejected[CREATE TABLE evil (x TEXT)] PASSED
+tests/test_validation.py::test_unsafe_sql_is_rejected[SELECT * FROM sales; DROP TABLE sales] PASSED
+tests/test_validation.py::test_unsafe_sql_is_rejected[SELECT * FROM sales -- hidden] PASSED
+tests/test_validation.py::test_unsafe_sql_is_rejected[SELECT * FROM sqlite_master] PASSED
+tests/test_validation.py::test_unsafe_sql_is_rejected[SELECT * FROM rejected_rows] PASSED
+tests/test_validation.py::test_unsafe_sql_is_rejected[SELECT * FROM sales, rejected_rows] PASSED
+tests/test_validation.py::test_unsafe_sql_is_rejected[SELECT 1] PASSED
+tests/test_validation.py::test_unsafe_sql_is_rejected[WITH x AS (SELECT 1) SELECT * FROM sales] PASSED
+tests/test_validation.py::test_unsafe_sql_is_rejected[PRAGMA table_info(sales)] PASSED
+tests/test_validation.py::test_unsafe_sql_is_rejected[ATTACH DATABASE 'x.db' AS x] PASSED
+tests/test_validation.py::test_unsafe_sql_is_rejected[] PASSED
+tests/test_validation.py::test_run_safe_query_blocks_before_execution PASSED
+tests/test_validation.py::test_readonly_connection_cannot_write PASSED
+
+============================== 79 passed in 0.73s ==============================

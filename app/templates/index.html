@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mini AI Business Intelligence Assistant</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <main>
+    <h1>Mini AI Business Intelligence Assistant</h1>
+    <p class="subtitle">Ask a question about the sales data in plain English.</p>
+
+    <textarea id="question" rows="2" maxlength="500" placeholder="e.g. Which region generated the highest sales?"></textarea>
+    <button id="ask-button">Ask Question</button>
+
+    <div class="examples">
+      <span>Try:</span>
+      <button class="example">What is the total revenue?</button>
+      <button class="example">Which product generated the highest revenue?</button>
+      <button class="example">What is the monthly revenue trend?</button>
+      <button class="example">Which region generated the highest sales?</button>
+      <button class="example">Compare January and February revenue</button>
+    </div>
+
+    <div id="loading" class="hidden">Loading...</div>
+    <div id="error" class="hidden"></div>
+
+    <section id="result" class="hidden">
+      <h2>Answer</h2>
+      <p id="answer"></p>
+      <p id="meta" class="meta"></p>
+      <h2>Supporting data</h2>
+      <div id="data"></div>
+      <details>
+        <summary>SQL used</summary>
+        <pre id="sql"></pre>
+      </details>
+    </section>
+  </main>
+  <script src="/static/script.js"></script>
+</body>
+</html>
